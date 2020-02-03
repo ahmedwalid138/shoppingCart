@@ -3,29 +3,32 @@ package com.vodafone.shoppingCart.models;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Data
 @Entity(name = "products")
 public class Product {
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int product_id;
-    private String product_code;
-    private String product_description;
-    private int product_quantity;
-
+    @Column(name = "product_id")
+    private int productID;
+    @Column(name = "product_code")
+    private String productCode;
+    @Column(name = "product_description")
+    private String productDescription;
+    @Column(name = "product_quantity")
+    private int productQuantity;
+    @Column(name = "product_price")
+    private double productPrice;
+    @Column(name = "product_last_update")
+    private Date productLastUpdate;
+    @ManyToOne
+    private Category categoryID;
 //    @Lob
 //    @Type(type="org.hibernate.type.BinaryType")
 //    private byte [] product_image;
-    private double product_price;
-    private Date product_last_update;
-    private int product_category_id;
+
 
 }
+
