@@ -2,10 +2,8 @@ package com.vodafone.shoppingCart.models;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -18,6 +16,7 @@ public class Category {
     private int category_id;
     private String category_name;
     private Date category_date;
-    private List<Product> category_products;
+    @OneToMany(targetEntity=Product.class, mappedBy = "category")
+    private List<Product> products = new ArrayList<Product>();
 
 }

@@ -2,6 +2,7 @@ package com.vodafone.shoppingCart.models;
 
 
 import lombok.Data;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -23,11 +24,12 @@ public class Product {
     private double productPrice;
     @Column(name = "product_last_update")
     private Date productLastUpdate;
-    @ManyToOne
-    private Category categoryID;
-//    @Lob
-//    @Type(type="org.hibernate.type.BinaryType")
-//    private byte [] product_image;
+    @JoinColumn(name="category_id", referencedColumnName = "category_id")
+    @ManyToOne(optional = false,targetEntity = Category.class)
+    private Category category;
+    @Lob
+    @Type(type="org.hibernate.type.BinaryType")
+    private byte [] product_image;
 
 
 }
