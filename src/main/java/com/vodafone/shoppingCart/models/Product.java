@@ -1,15 +1,17 @@
 package com.vodafone.shoppingCart.models;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
-import org.hibernate.annotations.Type;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Data
 @Entity(name = "products")
-public class Product {
+public class Product implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "product_id")
@@ -26,10 +28,10 @@ public class Product {
     private Date productLastUpdate;
     @JoinColumn(name="category_id", referencedColumnName = "category_id")
     @ManyToOne(optional = false,targetEntity = Category.class)
+    @JsonBackReference
     private Category category;
-    @Lob
-    @Type(type="org.hibernate.type.BinaryType")
-    private byte [] product_image;
+    @Transient
+    private MultipartFile product_image;
 
 
 }

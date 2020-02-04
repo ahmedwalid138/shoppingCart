@@ -1,5 +1,6 @@
 package com.vodafone.shoppingCart.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -17,6 +18,7 @@ public class Category {
     private String category_name;
     private Date category_date;
     @OneToMany(targetEntity=Product.class, mappedBy = "category")
+    @JsonManagedReference
     private List<Product> products = new ArrayList<Product>();
 
 }
