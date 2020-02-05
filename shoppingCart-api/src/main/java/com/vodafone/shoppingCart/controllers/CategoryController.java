@@ -1,7 +1,8 @@
 package com.vodafone.shoppingCart.controllers;
 
-import com.vodafone.shoppingCart.models.Category;
-import com.vodafone.shoppingCart.services.CategoryService;
+
+import com.vodafone.saafana.service.CategoryService;
+import com.vodafone.saafana.service.models.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,6 +18,7 @@ public class CategoryController {
     @GetMapping("getCategories")
     public List<Category> getCategories() {
         return categoryService.getAllCategories();
+
     }
 
 }

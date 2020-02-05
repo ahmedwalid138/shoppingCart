@@ -1,4 +1,4 @@
-package com.vodafone.shoppingCart.models;
+package com.vodafone.saafana.repositories.model;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;

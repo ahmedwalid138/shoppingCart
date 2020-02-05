@@ -1,7 +1,7 @@
 <persistence-unit name="punit">
         <description>Hibernate EntityManager Demo</description>
-        <class>com.vodafone.shoppingCart.models.Product</class>
-        <class>com.vodafone.shoppingCart.models.Category</class>
+        <class>com.vodafone.saafana.service.models.Product</class>
+        <class>com.vodafone.saafana.service.models.Category</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>

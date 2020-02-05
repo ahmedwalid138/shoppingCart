@@ -1,8 +1,10 @@
-package com.vodafone.shoppingCart.services;
+package com.vodafone.saafana.service;
 
-import com.vodafone.shoppingCart.models.Category;
+
+import com.vodafone.saafana.service.models.Category;
 
 import java.util.List;
+
 
 public interface CategoryService {
     List<Category> getAllCategories();
